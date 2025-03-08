@@ -41,10 +41,10 @@ export default function Contact() {
                   以下のメールアドレスまでご連絡ください：
                 </p>
                 <a
-                  href="mailto:majalis.msz@gmail.com"
+                  href="mailto:majalis.work@gmail.com"
                   className="text-lg font-medium hover:underline"
                 >
-                  majalis.msz@gmail.com
+                  majalis.work@gmail.com
                 </a>
               </div>
             </CardContent>
