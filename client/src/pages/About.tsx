@@ -46,7 +46,7 @@ export default function About() {
                 <h2 className="text-2xl font-semibold mb-4">私について</h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    はじめまして。私はITエンジニアとして、スマートフォンアプリ、会計システム、IT教育用システムの開発に携わってきました。
+                    はじめまして。私はITエンジニアとして、スマートフォンアプリ、会計システム、システムエンジニア向け研修・教育システムの開発に携わってきました。
                     ただ作るだけでなく、お客様が直感的に使えるシステムを提供することを大切にしています。
                   </p>
                   <div className="py-4">
