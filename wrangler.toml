@@ -6,3 +6,14 @@ bucket = "./dist/public"
 
 [build]
 command = "npm run build"
+
+[env.production]
+name = "majalis-portfolio-prod"
+routes = [
+  { pattern = "majalis.site", custom_domain = true }
+]
+
+# Environment variables will be set in the Cloudflare dashboard
+# Required variables:
+# - VITE_MICROCMS_SERVICE_DOMAIN
+# - VITE_MICROCMS_API_KEY
