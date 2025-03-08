@@ -1,9 +1,48 @@
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Palette, Code, Zap, Laptop, Users, Globe } from "lucide-react";
 import { Link } from "wouter";
 import { SEO } from "@/components/shared/SEO";
+
+const services = [
+  {
+    icon: Palette,
+    title: "デザイン",
+    description: "美しく使いやすいUIデザインを提供します。モダンでミニマルなデザインで、ユーザー体験を向上させます。",
+    points: ["レスポンシブデザイン", "アクセシビリティ対応", "ブランドアイデンティティの反映"]
+  },
+  {
+    icon: Code,
+    title: "開発",
+    description: "最新のWeb技術を活用した高品質な開発を行います。保守性と拡張性を考慮した実装を心がけています。",
+    points: ["モダンな技術スタック", "クリーンなコード", "継続的な改善"]
+  },
+  {
+    icon: Zap,
+    title: "パフォーマンス",
+    description: "高速で快適なユーザー体験を実現します。SEO対策やページ読み込みの最適化を徹底的に行います。",
+    points: ["高速な読み込み", "SEO最適化", "スムーズな操作感"]
+  },
+  {
+    icon: Laptop,
+    title: "レスポンシブ対応",
+    description: "あらゆるデバイスで最適な表示を実現します。スマートフォンからデスクトップまで、一貫した体験を提供します。",
+    points: ["マルチデバイス対応", "画面サイズ最適化", "タッチ操作対応"]
+  },
+  {
+    icon: Users,
+    title: "ユーザー中心設計",
+    description: "ユーザーのニーズを理解し、使いやすさを追求したデザインを提供します。フィードバックを大切にした改善を行います。",
+    points: ["ユーザビリティテスト", "フィードバック反映", "継続的な改善"]
+  },
+  {
+    icon: Globe,
+    title: "グローバル対応",
+    description: "多言語対応やグローバルな展開を見据えた開発が可能です。世界に向けたサービス展開をサポートします。",
+    points: ["多言語対応", "地域別最適化", "グローバルSEO"]
+  }
+];
 
 export default function Home() {
   return (
@@ -51,18 +90,34 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
-            {[
-              { title: "Design", description: "Clean and minimalist design approach" },
-              { title: "Development", description: "Modern web technologies and best practices" },
-              { title: "Performance", description: "Optimized for speed and accessibility" },
-            ].map((item) => (
-              <div key={item.title} className="p-6 bg-background rounded-lg text-center">
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
-              </div>
-            ))}
+            <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">サービス内容</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div className="p-6 bg-background rounded-lg hover:shadow-lg transition-shadow">
+                    <service.icon className="h-12 w-12 mb-4 text-foreground/80" />
+                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                    <p className="text-muted-foreground mb-4">{service.description}</p>
+                    <ul className="space-y-2">
+                      {service.points.map((point, i) => (
+                        <li key={i} className="flex items-center text-sm text-muted-foreground">
+                          <span className="w-1.5 h-1.5 rounded-full bg-foreground/60 mr-2" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </Container>
       </section>
