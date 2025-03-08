@@ -11,6 +11,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Works from "@/pages/Works";
 import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 
 function Router() {
   return (
@@ -19,6 +20,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/works" component={Works} />
         <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
     </AnimatedTransition>
