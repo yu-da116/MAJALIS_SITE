@@ -76,7 +76,7 @@ export default function Contact() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>お名前</FormLabel>
+                        <FormLabel className="text-foreground">お名前</FormLabel>
                         <FormControl>
                           <Input placeholder="山田 太郎" {...field} />
                         </FormControl>
@@ -89,7 +89,7 @@ export default function Contact() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>メールアドレス</FormLabel>
+                        <FormLabel className="text-foreground">メールアドレス</FormLabel>
                         <FormControl>
                           <Input placeholder="yamada@example.com" {...field} />
                         </FormControl>
@@ -102,7 +102,7 @@ export default function Contact() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>メッセージ</FormLabel>
+                        <FormLabel className="text-foreground">メッセージ</FormLabel>
                         <FormControl>
                           <Textarea
                             placeholder="お問い合わせ内容をご記入ください"
