@@ -9,12 +9,14 @@ import { AnimatedTransition } from "./components/shared/AnimatedTransition";
 import { HelmetProvider } from "react-helmet-async";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import Works from "@/pages/Works";
 
 function Router() {
   return (
     <AnimatedTransition>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/works" component={Works} />
         <Route component={NotFound} />
       </Switch>
     </AnimatedTransition>
