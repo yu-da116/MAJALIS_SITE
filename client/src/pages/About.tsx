@@ -2,17 +2,29 @@ import { Container } from "@/components/layout/Container";
 import { SEO } from "@/components/shared/SEO";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { SiReact, SiTypescript, SiTailwindcss, SiVuedotjs, SiPhp, SiLaravel } from "react-icons/si";
+import { SiReact, SiTypescript, SiTailwindcss, SiVuedotjs, SiPhp, SiLaravel, SiHtml5, SiCss3, SiJavascript, SiNodedotjs, SiDotnet, SiMysql } from "react-icons/si";
+import { VBAIcon } from "@/components/shared/VBAIcon";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const skills = [
-  { icon: SiReact, name: "React", description: "モダンなUIの構築" },
-  { icon: SiTypescript, name: "TypeScript", description: "型安全な開発" },
-  { icon: SiTailwindcss, name: "Tailwind CSS", description: "洗練されたデザイン" },
-  { icon: SiVuedotjs, name: "Vue.js", description: "インタラクティブなUI開発" },
-  { icon: SiPhp, name: "PHP", description: "サーバーサイド開発" },
-  { icon: SiLaravel, name: "Laravel", description: "堅牢なバックエンド構築" }
-];
+const skills = {
+  languages: [
+    { icon: SiHtml5, name: "HTML", description: "マークアップ言語" },
+    { icon: SiCss3, name: "CSS", description: "スタイリング" },
+    { icon: SiJavascript, name: "JavaScript", description: "フロントエンド開発" },
+    { icon: SiTypescript, name: "TypeScript", description: "型安全な開発" },
+    { icon: SiPhp, name: "PHP", description: "サーバーサイド開発" },
+    { icon: SiMysql, name: "SQL", description: "データベース操作" },
+    { icon: VBAIcon, name: "VBA", description: "業務効率化" }
+  ],
+  frameworks: [
+    { icon: SiReact, name: "React", description: "モダンなUIの構築" },
+    { icon: SiVuedotjs, name: "Vue.js", description: "インタラクティブなUI開発" },
+    { icon: SiNodedotjs, name: "Node.js", description: "サーバーサイド開発" },
+    { icon: SiLaravel, name: "Laravel", description: "堅牢なバックエンド構築" },
+    { icon: SiTailwindcss, name: "Tailwind CSS", description: "モダンなスタイリング" },
+    { icon: SiDotnet, name: ".NET", description: "エンタープライズ開発" }
+  ]
+};
 
 export default function About() {
   const { ref: skillsRef, isInView: skillsInView } = useScrollAnimation();
@@ -77,29 +89,60 @@ export default function About() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
+              className="space-y-12"
             >
-              <h2 className="text-2xl font-semibold mb-6 text-center">スキル & 技術</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={skillsInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <Card className="hover:scale-105 transition-transform">
-                      <CardContent className="p-6 flex items-center gap-4">
-                        <skill.icon className="h-8 w-8" />
-                        <div>
-                          <h3 className="font-semibold">{skill.name}</h3>
-                          <p className="text-sm text-muted-foreground">
-                            {skill.description}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
+              {/* プログラミング言語 */}
+              <div>
+                <h2 className="text-2xl font-semibold mb-6 text-center">プログラミング言語</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {skills.languages.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={skillsInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      <Card className="hover:scale-105 transition-transform">
+                        <CardContent className="p-6 flex items-center gap-4">
+                          <skill.icon className="h-8 w-8" />
+                          <div>
+                            <h3 className="font-semibold">{skill.name}</h3>
+                            <p className="text-sm text-muted-foreground">
+                              {skill.description}
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* フレームワーク/ライブラリ */}
+              <div>
+                <h2 className="text-2xl font-semibold mb-6 text-center">フレームワーク/ライブラリ</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {skills.frameworks.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={skillsInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      <Card className="hover:scale-105 transition-transform">
+                        <CardContent className="p-6 flex items-center gap-4">
+                          <skill.icon className="h-8 w-8" />
+                          <div>
+                            <h3 className="font-semibold">{skill.name}</h3>
+                            <p className="text-sm text-muted-foreground">
+                              {skill.description}
+                            </p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
