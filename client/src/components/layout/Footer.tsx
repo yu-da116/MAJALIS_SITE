@@ -8,7 +8,7 @@ export function Footer() {
       <Container>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Portfolio. All rights reserved.
+            © {currentYear} Majalis. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a

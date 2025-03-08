@@ -49,7 +49,7 @@ export default function Home() {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
-              Crafting Digital Experiences with Minimalist Design
+              Simplifying IT for You with Majalis
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               Frontend developer specializing in creating beautiful, functional, and accessible web applications.
