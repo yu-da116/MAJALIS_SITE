@@ -7,13 +7,13 @@ import { Link } from "wouter";
 export default function Home() {
   return (
     <>
-      <section className="py-24 md:py-32">
+      <section className="min-h-[80vh] flex items-center py-16 md:py-24">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">
               Crafting Digital Experiences with Minimalist Design
@@ -21,7 +21,7 @@ export default function Home() {
             <p className="text-lg text-muted-foreground mb-8">
               Frontend developer specializing in creating beautiful, functional, and accessible web applications.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center">
               <Link href="/works">
                 <Button size="lg">
                   View My Work
@@ -45,14 +45,14 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
           >
             {[
               { title: "Design", description: "Clean and minimalist design approach" },
               { title: "Development", description: "Modern web technologies and best practices" },
               { title: "Performance", description: "Optimized for speed and accessibility" },
             ].map((item) => (
-              <div key={item.title} className="p-6 bg-background rounded-lg">
+              <div key={item.title} className="p-6 bg-background rounded-lg text-center">
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
               </div>
