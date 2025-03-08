@@ -3,6 +3,7 @@ import { SEO } from "@/components/shared/SEO";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { SiReact, SiTypescript, SiTailwindcss, SiVuedotjs, SiPhp, SiLaravel } from "react-icons/si";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const skills = [
   { icon: SiReact, name: "React", description: "モダンなUIの構築" },
@@ -14,6 +15,8 @@ const skills = [
 ];
 
 export default function About() {
+  const { ref: skillsRef, isInView: skillsInView } = useScrollAnimation();
+
   return (
     <>
       <SEO
@@ -69,35 +72,37 @@ export default function About() {
             </Card>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <h2 className="text-2xl font-semibold mb-6 text-center">スキル & 技術</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                >
-                  <Card>
-                    <CardContent className="p-6 flex items-center gap-4">
-                      <skill.icon className="h-8 w-8" />
-                      <div>
-                        <h3 className="font-semibold">{skill.name}</h3>
-                        <p className="text-sm text-muted-foreground">
-                          {skill.description}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <div ref={skillsRef}>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <h2 className="text-2xl font-semibold mb-6 text-center">スキル & 技術</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {skills.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={skillsInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="hover:scale-105 transition-transform">
+                      <CardContent className="p-6 flex items-center gap-4">
+                        <skill.icon className="h-8 w-8" />
+                        <div>
+                          <h3 className="font-semibold">{skill.name}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {skill.description}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </Container>
     </>
