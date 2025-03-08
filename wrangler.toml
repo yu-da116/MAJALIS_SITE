@@ -1,0 +1,8 @@
+name = "majalis-portfolio"
+compatibility_date = "2024-03-08"
+
+[site]
+bucket = "./dist/public"
+
+[build]
+command = "npm run build"
