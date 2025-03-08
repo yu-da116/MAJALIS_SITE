@@ -12,10 +12,10 @@ export function LoadingProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 初期ローディングを表示
+    // 初期ローディングを表示（カウントアップアニメーションの時間に合わせて2.5秒に設定）
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
