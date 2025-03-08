@@ -1,7 +1,7 @@
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Palette, Code, Zap, Laptop, Users, Globe } from "lucide-react";
+import { ArrowRight, Palette, Code, Users } from "lucide-react";
 import { Link } from "wouter";
 import { SEO } from "@/components/shared/SEO";
 
@@ -19,28 +19,10 @@ const services = [
     points: ["モダンな技術スタック", "クリーンなコード", "継続的な改善"]
   },
   {
-    icon: Zap,
-    title: "パフォーマンス",
-    description: "高速で快適なユーザー体験を実現します。SEO対策やページ読み込みの最適化を徹底的に行います。",
-    points: ["高速な読み込み", "SEO最適化", "スムーズな操作感"]
-  },
-  {
-    icon: Laptop,
-    title: "レスポンシブ対応",
-    description: "あらゆるデバイスで最適な表示を実現します。スマートフォンからデスクトップまで、一貫した体験を提供します。",
-    points: ["マルチデバイス対応", "画面サイズ最適化", "タッチ操作対応"]
-  },
-  {
     icon: Users,
     title: "ユーザー中心設計",
     description: "ユーザーのニーズを理解し、使いやすさを追求したデザインを提供します。フィードバックを大切にした改善を行います。",
     points: ["ユーザビリティテスト", "フィードバック反映", "継続的な改善"]
-  },
-  {
-    icon: Globe,
-    title: "グローバル対応",
-    description: "多言語対応やグローバルな展開を見据えた開発が可能です。世界に向けたサービス展開をサポートします。",
-    points: ["多言語対応", "地域別最適化", "グローバルSEO"]
   }
 ];
 
@@ -93,7 +75,7 @@ export default function Home() {
             className="max-w-5xl mx-auto"
           >
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">サービス内容</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {services.map((service, index) => (
                 <motion.div
                   key={service.title}
