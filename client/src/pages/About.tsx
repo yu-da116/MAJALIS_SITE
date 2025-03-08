@@ -2,13 +2,12 @@ import { Container } from "@/components/layout/Container";
 import { SEO } from "@/components/shared/SEO";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { SiReact, SiTypescript, SiTailwindcss, SiFramer, SiVuedotjs, SiPhp, SiLaravel } from "react-icons/si";
+import { SiReact, SiTypescript, SiTailwindcss, SiVuedotjs, SiPhp, SiLaravel } from "react-icons/si";
 
 const skills = [
   { icon: SiReact, name: "React", description: "モダンなUIの構築" },
   { icon: SiTypescript, name: "TypeScript", description: "型安全な開発" },
   { icon: SiTailwindcss, name: "Tailwind CSS", description: "洗練されたデザイン" },
-  { icon: SiFramer, name: "Framer Motion", description: "滑らかなアニメーション" },
   { icon: SiVuedotjs, name: "Vue.js", description: "インタラクティブなUI開発" },
   { icon: SiPhp, name: "PHP", description: "サーバーサイド開発" },
   { icon: SiLaravel, name: "Laravel", description: "堅牢なバックエンド構築" }
@@ -45,14 +44,27 @@ export default function About() {
             <Card>
               <CardContent className="pt-6">
                 <h2 className="text-2xl font-semibold mb-4">私について</h2>
-                <p className="text-muted-foreground mb-4">
-                  モダンなWebテクノロジーを活用し、ユーザー体験を重視したアプリケーション開発を行っています。
-                  特にReactエコシステムを中心に、パフォーマンスとアクセシビリティの両立を目指しています。
-                </p>
-                <p className="text-muted-foreground">
-                  新しい技術やベストプラクティスの学習を継続的に行い、
-                  より良いプロダクトの提供を心がけています。
-                </p>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    はじめまして。私はITエンジニアとして、スマートフォンアプリ、会計システム、IT教育用システムの開発に携わってきました。
+                    ただ作るだけでなく、お客様が直感的に使えるシステムを提供することを大切にしています。
+                  </p>
+                  <div className="py-4">
+                    <p className="italic">
+                      「ITを活用したいけど、何から始めればいいかわからない…」
+                    </p>
+                    <p className="italic">
+                      「システムはあるけれど、もっと使いやすくしたい…」
+                    </p>
+                  </div>
+                  <p>
+                    そんなお悩みに寄り添い、お客様目線に立った開発とサポートを行います。
+                    お困りごとがあれば、ぜひお気軽にご相談ください。
+                  </p>
+                  <p className="font-medium text-foreground">
+                    あなたのアイデアをカタチにするお手伝いをいたします。
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </motion.div>
