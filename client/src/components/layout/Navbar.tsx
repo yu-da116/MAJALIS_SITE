@@ -4,7 +4,14 @@ import { ThemeToggle } from "../shared/ThemeToggle";
 import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { useState } from "react";
 import { LilyIcon } from "../shared/LilyIcon";
 
@@ -65,12 +72,13 @@ export function Navbar() {
                     <span className="sr-only">メニューを開く</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent 
-                  side="right" 
-                  className="w-[240px] sm:w-[300px]"
-                  aria-label="ナビゲーションメニュー"
-                  description="サイト内の各ページへのリンクを含むナビゲーションメニューです"
-                >
+                <SheetContent side="right" className="w-[240px] sm:w-[300px]">
+                  <SheetHeader>
+                    <SheetTitle>ナビゲーション</SheetTitle>
+                    <SheetDescription>
+                      サイト内の各ページへのリンクです。
+                    </SheetDescription>
+                  </SheetHeader>
                   <div className="flex flex-col gap-4 mt-8">
                     {links.map((link) => (
                       <Link key={link.href} href={link.href}>
