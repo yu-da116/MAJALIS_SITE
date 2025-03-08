@@ -2,13 +2,16 @@ import { Container } from "@/components/layout/Container";
 import { SEO } from "@/components/shared/SEO";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { SiReact, SiTypescript, SiTailwindcss, SiFramer } from "react-icons/si";
+import { SiReact, SiTypescript, SiTailwindcss, SiFramer, SiVuedotjs, SiPhp, SiLaravel } from "react-icons/si";
 
 const skills = [
   { icon: SiReact, name: "React", description: "モダンなUIの構築" },
   { icon: SiTypescript, name: "TypeScript", description: "型安全な開発" },
   { icon: SiTailwindcss, name: "Tailwind CSS", description: "洗練されたデザイン" },
   { icon: SiFramer, name: "Framer Motion", description: "滑らかなアニメーション" },
+  { icon: SiVuedotjs, name: "Vue.js", description: "インタラクティブなUI開発" },
+  { icon: SiPhp, name: "PHP", description: "サーバーサイド開発" },
+  { icon: SiLaravel, name: "Laravel", description: "堅牢なバックエンド構築" }
 ];
 
 export default function About() {
