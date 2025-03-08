@@ -69,14 +69,14 @@ export function Navbar() {
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon">
                     <Menu className="h-5 w-5" />
-                    <span className="sr-only">メニューを開く</span>
+                    <span className="sr-only">Toggle menu</span>
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[240px] sm:w-[300px]">
                   <SheetHeader>
-                    <SheetTitle>ナビゲーション</SheetTitle>
+                    <SheetTitle>Navigation</SheetTitle>
                     <SheetDescription>
-                      サイト内の各ページへのリンクです。
+                      Site navigation links
                     </SheetDescription>
                   </SheetHeader>
                   <div className="flex flex-col gap-4 mt-8">
