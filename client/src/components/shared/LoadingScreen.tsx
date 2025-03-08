@@ -25,7 +25,7 @@ export function LoadingScreen() {
       transition={{ duration: 0.5 }}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-background"
     >
-      <div className="relative w-24 h-24 mb-4">
+      <div className="relative w-16 h-16 mb-4">
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -33,7 +33,7 @@ export function LoadingScreen() {
             duration: 0.5,
             ease: "easeOut",
           }}
-          className="absolute inset-0 border-4 border-primary rounded-full"
+          className="absolute inset-0 border-2 border-primary/20 rounded-full"
         />
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
@@ -43,14 +43,14 @@ export function LoadingScreen() {
             delay: 0.2,
             ease: "easeOut",
           }}
-          className="absolute inset-0 border-t-4 border-accent rounded-full animate-spin"
+          className="absolute inset-0 border-t-2 border-primary/40 rounded-full animate-spin"
         />
       </div>
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2, ease: "easeOut"}}
-        className="text-2xl font-medium"
+        className="text-xl font-medium text-primary/60"
       >
         {count}%
       </motion.div>

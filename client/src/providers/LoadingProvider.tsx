@@ -8,7 +8,7 @@ interface LoadingContextType {
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
 
-export function LoadingProvider({ children }: { children: React.ReactNode }) {
+export function LoadingProvider({ children }: { children: (isLoading: boolean) => React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function LoadingProvider({ children }: { children: React.ReactNode }) {
       <AnimatePresence mode="wait">
         {loading && <LoadingScreen />}
       </AnimatePresence>
-      {children}
+      {children(loading)}
     </LoadingContext.Provider>
   );
 }

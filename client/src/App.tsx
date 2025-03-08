@@ -39,14 +39,16 @@ function App() {
       >
         <QueryClientProvider client={queryClient}>
           <LoadingProvider>
-            <div className="min-h-screen flex flex-col">
-              <Navbar />
-              <main className="flex-1 pt-16">
-                <Router />
-              </main>
-              <Footer />
-            </div>
-            <Toaster />
+            {(isLoading) => (
+              <div className="min-h-screen flex flex-col">
+                {!isLoading && <Navbar />}
+                <main className={`flex-1 ${!isLoading ? 'pt-16' : ''}`}>
+                  <Router />
+                </main>
+                {!isLoading && <Footer />}
+                <Toaster />
+              </div>
+            )}
           </LoadingProvider>
         </QueryClientProvider>
       </ThemeProvider>
