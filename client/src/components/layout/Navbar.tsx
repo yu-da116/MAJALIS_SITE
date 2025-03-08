@@ -26,7 +26,7 @@ export function Navbar() {
               whileHover={{ scale: 1.05 }}
               className="text-xl font-bold tracking-tighter"
             >
-              Portfolio
+              Majalis
             </motion.a>
           </Link>
 
