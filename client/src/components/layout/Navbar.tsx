@@ -6,6 +6,7 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
+import { LilyIcon } from "../shared/LilyIcon";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -24,8 +25,15 @@ export function Navbar() {
           <Link href="/">
             <motion.a
               whileHover={{ scale: 1.05 }}
-              className="text-xl font-bold tracking-tighter"
+              className="flex items-center gap-2 text-xl font-bold tracking-tighter"
             >
+              <motion.div
+                initial={{ rotate: 0 }}
+                whileHover={{ rotate: 15 }}
+                transition={{ duration: 0.2 }}
+              >
+                <LilyIcon className="w-6 h-6" />
+              </motion.div>
               Majalis
             </motion.a>
           </Link>
