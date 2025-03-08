@@ -23,9 +23,9 @@ export function Navbar() {
       <Container>
         <nav className="flex h-16 items-center justify-between">
           <Link href="/">
-            <motion.a
+            <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 text-xl font-bold tracking-tighter"
+              className="flex items-center gap-2 text-xl font-bold tracking-tighter cursor-pointer"
             >
               <motion.div
                 initial={{ rotate: 0 }}
@@ -35,7 +35,7 @@ export function Navbar() {
                 <LilyIcon className="w-6 h-6" />
               </motion.div>
               Majalis
-            </motion.a>
+            </motion.div>
           </Link>
 
           <div className="flex items-center gap-6">
@@ -43,12 +43,12 @@ export function Navbar() {
             <div className="hidden md:flex items-center gap-6">
               {links.map((link) => (
                 <Link key={link.href} href={link.href}>
-                  <motion.a
+                  <motion.div
                     whileHover={{ y: -2 }}
-                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   >
                     {link.label}
-                  </motion.a>
+                  </motion.div>
                 </Link>
               ))}
             </div>
@@ -68,12 +68,12 @@ export function Navbar() {
                   <div className="flex flex-col gap-4 mt-8">
                     {links.map((link) => (
                       <Link key={link.href} href={link.href}>
-                        <a
-                          className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                        <div
+                          className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                           onClick={() => setOpen(false)}
                         >
                           {link.label}
-                        </a>
+                        </div>
                       </Link>
                     ))}
                   </div>
