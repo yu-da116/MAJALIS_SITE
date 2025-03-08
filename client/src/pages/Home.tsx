@@ -3,10 +3,16 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { SEO } from "@/components/shared/SEO";
 
 export default function Home() {
   return (
     <>
+      <SEO
+        title="Home"
+        description="Frontend developer specializing in creating beautiful, functional, and accessible web applications with modern technologies."
+        keywords="frontend developer, web development, React, TypeScript, portfolio"
+      />
       <section className="min-h-[80vh] flex items-center py-16 md:py-24">
         <Container>
           <motion.div
