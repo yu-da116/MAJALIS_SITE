@@ -38,21 +38,19 @@ export default function BlogList() {
                   </p>
                 </div>
               </TooltipTrigger>
-              <TooltipContent side="bottom" className="max-w-sm p-4">
-                <div className="relative">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute -top-2 -right-2"
-                    onClick={dismissTooltip}
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                  <p className="text-sm">
-                    ブログ機能は現在開発中です。技術記事やプロジェクトの詳細な解説をお届けする予定です。
-                    乞うご期待ください！
-                  </p>
-                </div>
+              <TooltipContent side="bottom" className="max-w-sm p-6">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute -top-2 -right-2 hover:bg-muted"
+                  onClick={dismissTooltip}
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+                <p className="text-sm pr-4">
+                  ブログ機能は現在開発中です。技術記事やプロジェクトの詳細な解説をお届けする予定です。
+                  乞うご期待ください！
+                </p>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
