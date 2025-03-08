@@ -1,7 +1,7 @@
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Palette, Code, Users } from "lucide-react";
+import { ArrowRight, Palette, Code, Users, Zap } from "lucide-react";
 import { Link } from "wouter";
 import { SEO } from "@/components/shared/SEO";
 
@@ -23,6 +23,12 @@ const services = [
     title: "ユーザー中心設計",
     description: "ユーザーのニーズを理解し、使いやすさを追求したデザインを提供します。フィードバックを大切にした改善を行います。",
     points: ["ユーザビリティテスト", "フィードバック反映", "継続的な改善"]
+  },
+  {
+    icon: Zap,
+    title: "パフォーマンス",
+    description: "高速で快適なユーザー体験を実現します。SEO対策やページ読み込みの最適化を徹底的に行います。",
+    points: ["高速な読み込み", "SEO最適化", "スムーズな操作感"]
   }
 ];
 
@@ -75,7 +81,7 @@ export default function Home() {
             className="max-w-5xl mx-auto"
           >
             <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">サービス内容</h2>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {services.map((service, index) => (
                 <motion.div
                   key={service.title}
