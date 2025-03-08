@@ -33,7 +33,7 @@ export function LoadingScreen() {
             duration: 0.5,
             ease: "easeOut",
           }}
-          className="absolute inset-0 border-2 border-primary/20 rounded-full"
+          className="absolute inset-0 border-2 border-primary/30 rounded-full"
         />
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
@@ -43,7 +43,7 @@ export function LoadingScreen() {
             delay: 0.2,
             ease: "easeOut",
           }}
-          className="absolute inset-0 border-t-2 border-primary/40 rounded-full animate-spin"
+          className="absolute inset-0 border-t-2 border-primary/80 rounded-full animate-spin"
         />
       </div>
       <div className="flex flex-col items-center">
@@ -51,7 +51,7 @@ export function LoadingScreen() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut"}}
-          className="text-xl font-medium text-primary/60"
+          className="text-xl font-medium text-primary/80"
         >
           {count}%
         </motion.div>
@@ -59,7 +59,7 @@ export function LoadingScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4, ease: "easeOut"}}
-          className="mt-2 text-sm tracking-widest uppercase text-primary/40 font-light"
+          className="mt-2 text-sm tracking-widest uppercase text-primary/60 font-light"
         >
           majalis.site
         </motion.div>
