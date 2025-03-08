@@ -12,20 +12,12 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/majalis"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               GitHub
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              LinkedIn
             </a>
           </div>
         </div>
