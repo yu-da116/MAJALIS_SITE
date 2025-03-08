@@ -6,14 +6,50 @@ bucket = "./dist/public"
 
 [build]
 command = "npm run build"
+output_directory = "dist/public"
 
 [env.production]
 name = "majalis-portfolio-prod"
 routes = [
-  { pattern = "majalis.site", custom_domain = true }
+  # カスタムドメインの設定
+  { pattern = "majalis.site/*", custom_domain = true },
+  { pattern = "www.majalis.site/*", custom_domain = true }
 ]
 
-# Environment variables will be set in the Cloudflare dashboard
-# Required variables:
+# 環境変数の設定
+[vars]
+VITE_MICROCMS_SERVICE_DOMAIN = ""  # MicroCMSのサービスドメイン
+VITE_MICROCMS_API_KEY = ""        # MicroCMSのAPIキー
+
+# DNS設定手順:
+# 1. CloudflareのDNSセクションで以下を設定:
+#    - Aレコード:
+#      名前: majalis.site
+#      IPv4アドレス: 76.76.21.21（Cloudflare Pagesのエッジネットワーク）
+#      プロキシステータス: プロキシ済み（オレンジの雲マーク）
+#
+#    - CNAMEレコード:
+#      名前: www
+#      ターゲット: majalis.site
+#      プロキシステータス: プロキシ済み（オレンジの雲マーク）
+#
+# 2. SSL/TLS設定:
+#    - 暗号化モード: Full
+#    - Always Use HTTPS: 有効化
+#    - TLSバージョン: 1.2以上
+#
+# 3. キャッシュ設定:
+#    - キャッシュレベル: Standard
+#    - Browser Cache TTL: 4時間
+#    - Always Online: 有効化
+#
+# 4. ページルール（オプション）:
+#    - www -> 非www リダイレクト
+#    パターン: www.majalis.site/*
+#    設定: フォワード URL（301リダイレクト）
+#    ターゲット: majalis.site/$1
+
+# 環境変数は Cloudflare Pages > Settings > Environment variables で設定します
+# 必要な環境変数:
 # - VITE_MICROCMS_SERVICE_DOMAIN
 # - VITE_MICROCMS_API_KEY
