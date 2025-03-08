@@ -9,41 +9,37 @@ interface WorkItem {
   title: string;
   description: string;
   tags: string[];
-  image: string;
-  link: string;
+  features: string[];
 }
 
-const works: WorkItem[] = [
-  {
-    title: "モダンECサイト",
-    description: "Next.js、Tailwind CSS、Stripeを使用したフルスタックECサイト",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-    image: "/images/work1.png",
-    link: "https://example.com/work1"
-  },
-  {
-    title: "AI文章校正アプリ",
-    description: "OpenAI APIを活用した文章校正・提案エンジン",
-    tags: ["React", "Node.js", "OpenAI"],
-    image: "/images/work2.png",
-    link: "https://example.com/work2"
-  },
-  {
-    title: "デザインシステム",
-    description: "再利用可能なUIコンポーネントライブラリ",
-    tags: ["React", "Storybook", "Figma"],
-    image: "/images/work3.png",
-    link: "https://example.com/work3"
-  }
-];
+const portfolioProject: WorkItem = {
+  title: "モノクロームポートフォリオサイト",
+  description: "モダンなReactテクノロジースタックを活用した、ミニマルでエレガントなポートフォリオサイト。SEO最適化とアクセシビリティを重視したデザイン。",
+  tags: [
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "next-themes",
+    "Wouter",
+    "React Helmet"
+  ],
+  features: [
+    "レスポンシブデザイン",
+    "ダークモード対応",
+    "スムーズなページ遷移アニメーション",
+    "SEO最適化",
+    "アクセシビリティ対応"
+  ]
+};
 
 export default function Works() {
   return (
     <>
       <SEO
         title="Works"
-        description="A collection of my recent projects and works in web development and design."
-        keywords="portfolio, web development, projects, React, TypeScript"
+        description="A showcase of my recent project - A modern, minimalist portfolio website built with React and TypeScript."
+        keywords="portfolio, web development, React, TypeScript, frontend development"
       />
       <Container className="py-16 md:py-24">
         <motion.div
@@ -54,47 +50,51 @@ export default function Works() {
         >
           <h1 className="text-4xl font-bold tracking-tighter mb-4">Works</h1>
           <p className="text-lg text-muted-foreground">
-            A collection of my recent projects and explorations in web development.
+            Showcasing my latest project in web development.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {works.map((work, index) => (
-            <motion.div
-              key={work.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Link href={work.link}>
-                <Card className="group cursor-pointer hover:shadow-lg transition-all">
-                  <CardHeader className="relative">
-                    <div className="aspect-video bg-muted rounded-t-lg mb-4" />
-                    <CardTitle className="flex items-center gap-2">
-                      {work.title}
-                      <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      {work.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {work.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2 py-1 bg-muted rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Card className="max-w-4xl mx-auto">
+            <CardHeader>
+              <CardTitle className="text-2xl">{portfolioProject.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-6">
+                {portfolioProject.description}
+              </p>
+
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-semibold mb-2">技術スタック</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {portfolioProject.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-sm px-3 py-1 bg-muted rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold mb-2">主要機能</h3>
+                  <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                    {portfolioProject.features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </Container>
     </>
   );
