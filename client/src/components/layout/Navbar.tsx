@@ -59,11 +59,18 @@ export function Navbar() {
             {/* Mobile Navigation */}
             <div className="md:hidden">
               <Sheet open={open} onOpenChange={setOpen}>
-                <SheetTrigger>
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle menu</span>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-5 w-5" />
+                    <span className="sr-only">メニューを開く</span>
+                  </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[240px] sm:w-[300px]">
+                <SheetContent 
+                  side="right" 
+                  className="w-[240px] sm:w-[300px]"
+                  aria-label="ナビゲーションメニュー"
+                  description="サイト内の各ページへのリンクを含むナビゲーションメニューです"
+                >
                   <div className="flex flex-col gap-4 mt-8">
                     {links.map((link) => (
                       <Link key={link.href} href={link.href}>
