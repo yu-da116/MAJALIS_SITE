@@ -10,6 +10,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+import { apiRequest } from "@/lib/queryClient";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(1, "お名前を入力してください"),
@@ -21,6 +24,8 @@ type FormValues = z.infer<typeof formSchema>;
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -30,13 +35,30 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(data: FormValues) {
-    console.log(data);
-    toast({
-      title: "送信完了",
-      description: "お問い合わせありがとうございます。確認次第ご連絡いたします。",
-    });
-    form.reset();
+  async function onSubmit(data: FormValues) {
+    setIsSubmitting(true);
+    try {
+      const response = await apiRequest('POST', '/api/contact', data);
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "送信完了",
+          description: "お問い合わせありがとうございます。確認次第ご連絡いたします。",
+        });
+        form.reset();
+      } else {
+        throw new Error(result.message || 'エラーが発生しました');
+      }
+    } catch (error) {
+      toast({
+        title: "エラー",
+        description: error instanceof Error ? error.message : "送信に失敗しました。",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -114,7 +136,20 @@ export default function Contact() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full">送信する</Button>
+                  <Button 
+                    type="submit" 
+                    className="w-full" 
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        送信中...
+                      </>
+                    ) : (
+                      '送信する'
+                    )}
+                  </Button>
                 </form>
               </Form>
             </CardContent>
