@@ -1,12 +1,12 @@
 import { createClient } from 'microcms-js-sdk';
+import { config, validateConfig } from './config';
 
-if (!import.meta.env.VITE_MICROCMS_SERVICE_DOMAIN || !import.meta.env.VITE_MICROCMS_API_KEY) {
-  throw new Error('MicroCMS credentials are not set');
-}
+// 環境変数のバリデーション
+validateConfig();
 
 export const client = createClient({
-  serviceDomain: import.meta.env.VITE_MICROCMS_SERVICE_DOMAIN,
-  apiKey: import.meta.env.VITE_MICROCMS_API_KEY,
+  serviceDomain: config.microcms.serviceDomain,
+  apiKey: config.microcms.apiKey,
 });
 
 export type Blog = {

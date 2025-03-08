@@ -11,6 +11,7 @@
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
+    "@cloudflare/wrangler": "^1.21.0",
     "@hookform/resolvers": "^3.9.1",
     "@jridgewell/trace-mapping": "^0.3.25",
     "@radix-ui/react-accordion": "^1.2.1",
@@ -52,6 +53,7 @@
     "framer-motion": "^11.18.2",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.453.0",
+    "microcms-js-sdk": "^3.1.2",
     "next-themes": "^0.4.4",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
